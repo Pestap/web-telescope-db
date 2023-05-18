@@ -1,42 +1,42 @@
 CREATE TABLE `SECTIONS` (
   `id` integer PRIMARY KEY,
-  `title` varchar(255),
-  `summary` varchar(255),
+  `title` varchar(512),
+  `summary` text(512),
   `photo_id` integer,
   `time_investment` integer
 );
 
 CREATE TABLE `CHAPTERS` (
   `id` integer PRIMARY KEY,
-  `title` varchar(255),
-  `summary` varchar(255),
+  `title` varchar(512),
+  `summary` text(65535),
   `time_investment` integer,
   `sections_id` integer
 );
 
 CREATE TABLE `TOPICS` (
   `id` integer PRIMARY KEY,
-  `title` varchar(255),
+  `title` varchar(512),
   `visits` integer,
   `time_investment` integer,
   `edit_date` datetime,
-  `difficulty` integer,
+  `difficulty` varchar(512),
   `chapters_id` integer
 );
 
 CREATE TABLE `PARAGRAPHS` (
   `id` integer PRIMARY KEY,
-  `title` varchar(255),
-  `text` varchar(255),
+  `title` varchar(512),
+  `text` text(65535),
   `topics_id` integer
 );
 
 CREATE TABLE `USERS` (
   `id` integer PRIMARY KEY,
-  `role` varchar(255),
-  `email` varchar(255),
-  `username` varchar(255),
-  `password` varchar(255),
+  `role` varchar(512),
+  `email` varchar(512),
+  `username` varchar(512),
+  `password` varchar(512),
   `level` integer,
   `xp` integer
 );
@@ -61,9 +61,9 @@ CREATE TABLE `AUTHORSHIP` (
 
 CREATE TABLE `PHOTOS` (
   `id` integer PRIMARY KEY,
-  `url` varchar(255),
-  `title` varchar(255),
-  `alt` varchar(255)
+  `url` varchar(512),
+  `title` varchar(512),
+  `alt` varchar(512)
 );
 
 CREATE TABLE `CHAPTERS_PHOTOS` (
@@ -93,14 +93,14 @@ CREATE TABLE `TESTS` (
 
 CREATE TABLE `QUESTIONS` (
   `id` integer PRIMARY KEY,
-  `question` varchar(255),
+  `question` varchar(512),
   `photo_id` integer,
   `tests_id` integer
 );
 
 CREATE TABLE `ANSWERS` (
   `id` integer PRIMARY KEY,
-  `text` varchar(255),
+  `text` varchar(512),
   `is_correct` boolean,
   `photo_id` integer,
   `questions_id` integer
