@@ -37,6 +37,10 @@ section_id = 1
 chapter_id = 1
 topic_id = 1
 paragraph_id = 1
+test_id = 1
+question_id = 1
+answer_id = 1
+
 for s in sections:
     section_time_investment = 0
 
@@ -114,8 +118,32 @@ for s in sections:
             topic_id += 1
 
         # tests
+        if c['tests'] != None:
+            for test in c['tests']:
 
+                try:
+                    cursor.execute('INSERT INTO TESTS (id, title, number_of_questions, chapters_id) VALUES (?, ?, ?, ?)',
+                                   (test_id, test['title'], test['number_of_questions'], chapter_id))
+                    conn.commit()
 
+                    for question in test['questions']:
+                        cursor.execute('INSERT INTO QUESTIONS (id, question, photo_id, tests_id) VALUES (?,?,?,?)',
+                                           (question_id, question['question'], question['photo'], test_id))
+                        conn.commit()
+
+                        for answer in question['answers']:
+                            cursor.execute('INSERT INTO ANSWERS (id, text, is_correct, photo_id, questions_id) VALUES (?,?,?,?,?)',
+                                           (answer_id, answer['text'], answer['is_correct'], answer['photo'], question_id))
+                            conn.commit()
+                            answer_id += 1
+
+                        question_id += 1
+
+                except mariadb.Error as e:
+                    print(e)
+                    print("Proceeding with normal operation")
+
+                test_id += 1
 
         chapter_id += 1
 

@@ -86,7 +86,7 @@ CREATE TABLE `PARAGRAPHS_PHOTOS` (
 
 CREATE TABLE `TESTS` (
   `id` integer PRIMARY KEY,
-  `title` integer,
+  `title` varchar(512),
   `number_of_questions` integer,
   `chapters_id` integer
 );

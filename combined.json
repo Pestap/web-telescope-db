@@ -1748,7 +1748,7 @@
                             },
                             {
                                 "question" : "Na ile grup dzielimy gwiazdozbiory?",
-                                "photo" : "id_zdj",
+                                "photo" : null,
                                 "answers" : [
                                     {
                                         "text" : "6",
