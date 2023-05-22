@@ -13,7 +13,7 @@ conn = mariadb.connect(
         password="pgeti",
         host="localhost",
         port=3306,
-        database="astro"
+        database="astronomy_app"
     )
 
 cursor = conn.cursor()
