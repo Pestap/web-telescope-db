@@ -38,25 +38,29 @@ CREATE TABLE `USERS` (
   `username` varchar(512),
   `password` varchar(512),
   `level` integer,
-  `xp` integer
+  `xp` integer,
+  `user_id` integer
 );
 
 CREATE TABLE `COMPLETED_TOPICS` (
+  `id` integer NOT NULL  AUTO_INCREMENT,
   `users_id` integer,
   `topics_id` integer,
-  PRIMARY KEY (`topics_id`, `users_id`)
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `FAVOURITED_TOPICS` (
+  `id` integer NOT NULL  AUTO_INCREMENT,
   `users_id` integer,
   `topics_id` integer,
-  PRIMARY KEY (`topics_id`, `users_id`)
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `AUTHORSHIP` (
+  `id` integer NOT NULL AUTO_INCREMENT,
   `users_id` integer,
   `topics_id` integer,
-  PRIMARY KEY (`topics_id`, `users_id`)
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `PHOTOS` (
@@ -67,21 +71,24 @@ CREATE TABLE `PHOTOS` (
 );
 
 CREATE TABLE `CHAPTERS_PHOTOS` (
+  `id` integer NOT NULL  AUTO_INCREMENT,
   `chapters_id` integer,
   `photos_id` integer,
-  PRIMARY KEY (`chapters_id`, `photos_id`)
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `TOPICS_PHOTOS` (
+  `id` integer NOT NULL  AUTO_INCREMENT,
   `topics_id` integer,
   `photos_id` integer,
-  PRIMARY KEY (`topics_id`, `photos_id`)
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `PARAGRAPHS_PHOTOS` (
+  `id` integer NOT NULL  AUTO_INCREMENT,
   `paragraphs_id` integer,
   `photos_id` integer,
-  PRIMARY KEY (`paragraphs_id`, `photos_id`)
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `TESTS` (
@@ -107,10 +114,12 @@ CREATE TABLE `ANSWERS` (
 );
 
 CREATE TABLE `SCORES` (
+  `id` integer NOT NULL AUTO_INCREMENT,
   `score` integer,
   `date` datetime,
   `users_id` integer,
-  `tests_id` integer
+  `tests_id` integer,
+  PRIMARY KEY (`id`)
 );
 
 ALTER TABLE `SECTIONS` ADD FOREIGN KEY (`photo_id`) REFERENCES `PHOTOS` (`id`);
