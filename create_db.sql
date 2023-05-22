@@ -1,3 +1,11 @@
+CREATE OR REPLACE DATABASE astronomy_app;
+
+CREATE OR REPLACE USER 'astronomy_app_user'@localhost IDENTIFIED BY 'pgeti';
+GRANT ALL PRIVILEGES ON astronomy_app.* TO 'astronomy_app_user'@'localhost';
+FLUSH PRIVILEGES;
+
+USE astronomy_app;
+
 CREATE TABLE `SECTIONS` (
   `id` integer PRIMARY KEY,
   `title` varchar(512),
