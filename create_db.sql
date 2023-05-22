@@ -1,7 +1,7 @@
 CREATE OR REPLACE DATABASE astronomy_app;
 
-CREATE OR REPLACE USER 'astronomy_app_user'@localhost IDENTIFIED BY 'pgeti';
-GRANT ALL PRIVILEGES ON astronomy_app.* TO 'astronomy_app_user'@'localhost';
+CREATE OR REPLACE USER 'astronomy_app_user'@'%' IDENTIFIED BY 'pgeti';
+GRANT ALL PRIVILEGES ON astronomy_app.* TO 'astronomy_app_user'@'%';
 FLUSH PRIVILEGES;
 
 USE astronomy_app;
